@@ -1,7 +1,11 @@
-function App() {
+import SmartQueue from './views/smartqueue';
+import { ToastContainer } from 'react-toastify';
+
+const App = () => {
   return (
-    <div className="App">
-      App
+    <div className="app_main">
+      <SmartQueue />
+      <ToastContainer />
     </div>
   );
 }
