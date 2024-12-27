@@ -27,12 +27,30 @@ const WidgetA = () => {
   const handleReset = async () => {
     reset();
   };
+
+  const validateForm = () => {
+    if (!/^\d{11}$/.test(customer?.id)) {
+      toast.error('Digite una cédula válida.');
+      return false;
+    }
+    
+    if (!/^[a-zA-Z\s'-]{1,50}$/.test(customer?.name)) {
+      toast.error('Digite una nombre válido.');
+      return false;
+    }
+
+    return true;
+  };
   
   const handleSubmit = async () => {
     if (!customer.name || !customer.id) {
       toast.error('Favor completar los campos requeridos.');
       return;
     }
+    
+    const isValid = validateForm();
+
+    if (!isValid) return;
 
     if (!connection) {
       toast.error('Se perdió la conexión con el servidor.');

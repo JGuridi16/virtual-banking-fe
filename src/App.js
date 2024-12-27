@@ -1,12 +1,13 @@
-import SmartQueue from './views/smartqueue';
-import { ToastContainer } from 'react-toastify';
+import { BrowserRouter } from 'react-router-dom';
+import MainRouter from './navigation/MainRouter';
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
-    <div className="app_main">
-      <SmartQueue />
+    <BrowserRouter>
+      <MainRouter />
       <ToastContainer />
-    </div>
+    </BrowserRouter>
   );
 }
 

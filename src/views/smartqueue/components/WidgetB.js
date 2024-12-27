@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCustomersStore } from '../../../state/customers';
-import CustomCard from '../../../components/shared/Card';
+import CustomCard from '../../../components/shared/CustomCard';
+import { capitalize } from '../../../utils/string';
 
 const WidgetB = () => {
   const { customers } = useCustomersStore();
@@ -10,8 +11,8 @@ const WidgetB = () => {
         <div key={index} className='col-3 p-2'>
           <CustomCard
             key={index}
-            title={`Cola ${index}`}
-            description={customer.name}
+            title={`Cola ${index + 1}`}
+            description={capitalize(customer.name)}
             content={customer.id}
             timestamp={customer.timestamp}
           />
